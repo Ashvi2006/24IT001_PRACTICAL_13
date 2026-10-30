@@ -1,26 +1,14 @@
-import './Skills.css';
-
-const skills = [
-  'React.js 18',
-  'React.lazy() & Suspense Code-Splitting',
-  'React Router v6 Client-Side Routing',
-  'JavaScript ES6+',
-  'Node.js & Express REST API',
-  'MongoDB Atlas & Mongoose',
-  'JWT Authentication Middleware',
-  'Bcrypt Password Hashing'
-];
+import React from "react";
 
 function Skills() {
   return (
-    <section className="skills-card card">
-      <h2 className="section-title">⚡ Technical Skills</h2>
-      <ul className="skills-list">
-        {skills.map((skill, index) => (
-          <li key={index} className="skill-item">
-            <span className="skill-icon">🔥</span> {skill}
-          </li>
-        ))}
+    <section style={{ padding: "20px", background: "#eeeeee", color: "black" }}>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>React.js</li>
+        <li>JavaScript</li>
+        <li>Node.js and Express</li>
+        <li>MongoDB</li>
       </ul>
     </section>
   );

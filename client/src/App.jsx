@@ -1,32 +1,18 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import PageLoader from './components/PageLoader';
-import './App.css';
-
-const Home = lazy(() => import('./pages/Home'));
-const Projects = lazy(() => import('./pages/Projects'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Performance = lazy(() => import('./pages/Performance'));
+import React from "react";
+import Header from "./components/Header.jsx";
+import About from "./components/About.jsx";
+import Skills from "./components/Skills.jsx";
+import TaskManager from "./components/TaskManager.jsx";
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-
-        <main className="main-content">
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/performance" element={<Performance />} />
-            </Routes>
-          </Suspense>
-        </main>
-      </div>
-    </Router>
+    <div style={{ padding: "30px", color: "black" }}>
+      <Header />
+      <About />
+      <Skills />
+      <TaskManager />
+      
+    </div>
   );
 }
 

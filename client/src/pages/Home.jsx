@@ -1,19 +1,9 @@
-import Header from '../components/Header';
-import About from '../components/About';
-import Skills from '../components/Skills';
-import PerformanceMetrics from '../components/PerformanceMetrics';
-import TaskManager from '../components/TaskManager';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
 
 function Home() {
   return (
-    <div className="home-page">
+    <div>
       <Header />
-      <About />
-      <Skills />
-      <PerformanceMetrics />
-      <TaskManager />
-      <Footer />
     </div>
   );
 }

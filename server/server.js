@@ -9,6 +9,7 @@ dotenv.config();
 const connectDB = require('./config/db');
 const taskRoutes = require('./routes/taskRoutes');
 const authRoutes = require('./routes/authRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 // Load Event Listener
 require('./listener');
@@ -24,7 +25,19 @@ const taskCache = new NodeCache({
 // Request Logging Middleware
 app.use((req, res, next) => {
   const timestamp = new Date().toISOString();
-  console.log('[' + timestamp + '] ' + req.method + ' ' + req.url);
+
+  console.log('REQUEST START:', req.method, req.url);
+
+  res.on('finish', () => {
+    console.log(
+      'REQUEST COMPLETE:',
+      req.method,
+      req.url,
+      res.statusCode,
+      timestamp
+    );
+  });
+
   next();
 });
 
@@ -40,6 +53,7 @@ app.use(express.urlencoded({ extended: true }));
 // API Routes
 app.use('/api/tasks', taskRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health Check
 app.get('/api/health', (req, res) => {
